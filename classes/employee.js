@@ -1,14 +1,5 @@
 class Employee {
     constructor(name, id, email) {
-        if (!name) {
-            throw new Error("You are missing the name.");
-        }
-        if (!id) {
-            throw new Error("You are missing the strength.");
-        }
-        if (!email) {
-            throw new Error("You are missing the hitPoints.");
-        }
 
         this.name = name;
         this.id = id;
@@ -21,3 +12,5 @@ class Employee {
         console.log("------------");
     }
 };
+
+module.exports= Employee

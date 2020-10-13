@@ -5,7 +5,7 @@ const util= require("util");
 
 
 // employee modules
-const employee = require("./employee")
+const Employee = require("./employee")
 
 // to store employee inputs
 let team = [];
@@ -35,6 +35,9 @@ inquirer.prompt([
 ]).then(res => {
         const {name,id,email} =res;
         console.log(res)
+        // pushing the response into the team array
+        team.push(res)
+        console.log(team);
 });
 };
 
