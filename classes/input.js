@@ -42,7 +42,7 @@ inquirer.prompt([
     },
 ]).then(res => {
         const {name,id,email,role} =res;
-        console.log(res)
+        // console.log(res)
         // pushing the response into the team array
         team.push(res)
         console.log(team);
@@ -50,7 +50,7 @@ inquirer.prompt([
 };
 
 // switch statement with cases for each employee type
-switch(newTeamMember){
+switch(team){
     case 'manager':
         inquirer.prompt([
             {
