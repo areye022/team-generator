@@ -32,13 +32,32 @@ inquirer.prompt([
         message:"what is the employee's email ",
         name:'email'
     },
+    // not sure if i should make this section its own function?
+    //  then we can prompt questions based on what this answer is?
+    {
+        type:"checkbox",
+        message:"what is the employee's role ",
+        choices: ['manager','engineer','intern'],
+        name:'role'
+    },
 ]).then(res => {
-        const {name,id,email} =res;
+        const {name,id,email,role} =res;
         console.log(res)
         // pushing the response into the team array
         team.push(res)
         console.log(team);
 });
 };
+
+// switch statement with cases for each employee type
+switch(newTeamMember){
+    case 'manager':
+        inquirer.prompt([
+            {
+                type:'input',
+                message:"what is your office phone number?",
+                name:"Contact Number",
+            }])
+}
 
 newTeamMember();
