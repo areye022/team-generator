@@ -5,7 +5,7 @@ const util= require("util");
 
 
 // employee modules
-const employee = require("./employee.html")
+const employee = require("./employee")
 
 // to store employee inputs
 let team = [];
@@ -22,9 +22,8 @@ inquirer.prompt([
     //ID
     {
         type:"input",
-        message:"What role will the employee have?",
+        message:"What is the employees id number?",
         name:'id',
-        choices: ['manager', 'engineer', 'intern'],
     },
 
     //Email
@@ -38,3 +37,5 @@ inquirer.prompt([
         console.log(res)
 });
 };
+
+newTeamMember();
