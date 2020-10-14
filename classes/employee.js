@@ -2,11 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const util= require("util");
 
-const input= require('./input')
-
 class Employee {
     constructor(name, id, email, role) {
-        input.newTeamMember();
+        
 
         this.name = name;
         this.id = id;

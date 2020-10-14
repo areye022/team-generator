@@ -3,7 +3,7 @@ const inquirer= require('inquirer');
 const path = require('path');
 const util= require("util");
 
-
+// maybe move everything from input.js to employee.js? that way the classes actually work together??
 // employee modules; still dont understand why we need these if we are promting questions through inputs.js
 const Employee = require("./employee");
 const Manager = require("./manager");
