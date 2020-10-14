@@ -1,5 +1,4 @@
 const fs = require('fs');
-const inquirer= require('inquirer');
 const path = require('path');
 const util= require("util");
 
@@ -7,6 +6,7 @@ const input= require('./input')
 
 class Employee {
     constructor(name, id, email, role) {
+        input.newTeamMember();
 
         this.name = name;
         this.id = id;
@@ -20,17 +20,18 @@ class Employee {
         console.log("------------");
     }
     getName() {
-        console.log(this.name);
+        return this.name;
     }
     getId(){
-        console.log(this.id);
+        return this.id;
     }
     getEmail(){
-        console.log(this.email);
+        return this.email;
     }
     getRole(){
-        console.log(this.role);
+        return this.role;
     }
 };
+
 
 module.exports= Employee
