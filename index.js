@@ -111,7 +111,7 @@ const newTeamMember = () => {
                 ).then(res => {
                     // instantiate the new role and push to the array
                     let { name, id, role = "engineer", email, username } = res
-                    let newEngineer = new Intern(name, role, id, email, usesrname)
+                    let newEngineer = new Engineer(name, role, id, email, usesrname)
                     team.push(newEngineer)
                 })
         }
