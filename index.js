@@ -6,8 +6,14 @@ const util = require("util");
 // maybe move everything from input.js to employee.js? that way the classes actually work together??
 // employee modules; still dont understand why we need these if we are promting questions through inputs.js
 const Manager = require("./classes/manager");
-const Engineer = require("./classes/engineer");
-const Intern = require("./classes/intern");
+const Engineer = require("./classes/Engineer");
+const Intern = require("./classes/Intern");
+
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "team.html");
+
+const render = require("./classes/htmlRenderer");
+
 
 
 // to store employee inputs
@@ -111,8 +117,9 @@ const newTeamMember = () => {
                 ).then(res => {
                     // instantiate the new role and push to the array
                     let { name, id, role = "engineer", email, username } = res
-                    let newEngineer = new Engineer(name, role, id, email, usesrname)
+                    let newEngineer = new Engineer(name, role, id, email, username)
                     team.push(newEngineer)
+                    fs.writeFileSync(outputPath, render(team,name))
                 })
         }
     });
@@ -123,3 +130,5 @@ async function init() {
 }
 
 init()
+
+module.exports= newTeamMember
