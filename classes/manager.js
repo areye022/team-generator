@@ -10,12 +10,6 @@ class Manager extends Employee{
         this.role=role;
         this.officeNumber= officeNumber;
     }
-    printInfo() {
-        console.log(`${this.name} is a new team-member`);
-        console.log(`They're role is ${this.id}`);
-        console.log(`They're email is ${this.email}`);
-        console.log("------------");
-    }
 
     getRole(){
         console.log(this.role);

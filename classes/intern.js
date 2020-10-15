@@ -10,12 +10,6 @@ class Intern extends Employee{
         this.role=role;
         this.school=school;
     }
-    printInfo() {
-        console.log(`${this.name} is a new team-member`);
-        console.log(`They're role is ${this.id}`);
-        console.log(`They're email is ${this.email}`);
-        console.log("------------");
-    }
 
     getSchool(){
         console.log(this.school);

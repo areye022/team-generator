@@ -11,12 +11,6 @@ class Employee {
         this.email = email;
         this.role=role;
     }
-    printInfo() {
-        console.log(`${this.name} is a new team-member`);
-        console.log(`They're role is ${this.id}`);
-        console.log(`They're email is ${this.email}`);
-        console.log("------------");
-    }
     getName() {
         return this.name;
     }

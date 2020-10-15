@@ -5,6 +5,7 @@ const templatesDir = path.resolve(__dirname, "../roletemplates");
 
 const render = employees => {
     const html = [];
+// this was given, so i still need this even though i created switch statments?
 
     html.push(employees
         .filter(employee => employee.getRole() === "Manager")

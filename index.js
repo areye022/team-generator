@@ -17,6 +17,7 @@ const render = require("./classes/htmlrenderer");
 // to store employee inputs
 let team = [];
 
+// function to prompt employee information questions
 const newTeamMember = () => {
     inquirer.prompt([
         {
@@ -26,6 +27,7 @@ const newTeamMember = () => {
         }
     ]).then(res => {
         const { role } = res;
+        // manager switch case, will prompt manager type questions
         switch (role) {
             case "manager":
                 inquirer.prompt(
@@ -117,11 +119,14 @@ const newTeamMember = () => {
                     let { name, id, role = "engineer", email, username } = res
                     let newEngineer = new Engineer(name, role, id, email, username)
                     team.push(newEngineer)
+
+                    // where am i supposed to make the promise to write the file onto the team.html?
                     // fs.writeFileSync(outputPath, render(team,name))
                 })
         }
     });
 };
+
 
 async function init() {
     await newTeamMember();

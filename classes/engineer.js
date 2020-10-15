@@ -10,12 +10,6 @@ class Engineer extends Employee{
         this.role=role;
         this.gitHub= gitHub;
     }
-    printInfo() {
-        console.log(`${this.name} is a new team-member`);
-        console.log(`They're role is ${this.id}`);
-        console.log(`They're email is ${this.email}`);
-        console.log("------------");
-    }
 
     getGitHub(){
         console.log(this.gitHub)
