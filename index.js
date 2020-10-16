@@ -94,7 +94,7 @@ const newTeamMember = () => {
                     newTeamMember();
                 })
                 break
-                case "Engineer":
+                case "engineer":
                 inquirer.prompt(
                     [{
                         type: "input",
