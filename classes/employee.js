@@ -3,13 +3,14 @@ const path = require('path');
 const util= require("util");
 
 class Employee {
-    constructor(name, id, email, role) {
-        
+    constructor(name, id, email) {
 
+        console.log("inside employee");
+        console.log(name);
         this.name = name;
         this.id = id;
         this.email = email;
-        this.role=role;
+        
     }
     getName() {
         return this.name;
@@ -21,7 +22,7 @@ class Employee {
         return this.email;
     }
     getRole(){
-        return this.role;
+        return "employee";
     }
 };
 

@@ -21,9 +21,10 @@ let team = [];
 const newTeamMember = () => {
     inquirer.prompt([
         {
-            type: "input",
+            type: "list",
             message: "What role do they have",
-            name: "role"
+            name: "role",
+            choices:["manager", "engineer", "intern", "done"]
         }
     ]).then(res => {
         const { role } = res;
@@ -55,8 +56,9 @@ const newTeamMember = () => {
                 ).then(res => {
                     // instantiate the new role and push to the array
                     let { name, id, role = "manager", email, officeNumber } = res
-                    let newManager = new Manager(name, role,email, id, officeNumber)
-                    team.push(newManager)
+                    let newManager = new Manager(name, email, id, officeNumber)
+                    team.push(newManager);
+                    newTeamMember();
                 })
                 break
             case "intern":
@@ -87,11 +89,12 @@ const newTeamMember = () => {
                 ).then(res => {
                     // instantiate the new role and push to the array
                     let { name, id, role = "intern", email, school } = res
-                    let newIntern = new Intern(name, role, id, email, school)
-                    team.push(newIntern)
+                    let newIntern = new Intern(name, email, id, school)
+                    team.push(newIntern);
+                    newTeamMember();
                 })
                 break
-                case "engineer":
+                case "Engineer":
                 inquirer.prompt(
                     [{
                         type: "input",
@@ -117,12 +120,18 @@ const newTeamMember = () => {
                 ).then(res => {
                     // instantiate the new role and push to the array
                     let { name, id, role = "engineer", email, username } = res
-                    let newEngineer = new Engineer(name, role, id, email, username)
-                    team.push(newEngineer)
+                    let newEngineer = new Engineer(name, email, id, username)
+                    team.push(newEngineer);
+                    newTeamMember();
 
                     // where am i supposed to make the promise to write the file onto the team.html?
-                    // fs.writeFileSync(outputPath, render(team,name))
+                    
                 })
+                break
+                case "done":
+                    console.log(team);
+                    fs.writeFileSync(outputPath, render(team),"utf-8")
+                    
         }
     });
 };
@@ -130,7 +139,14 @@ const newTeamMember = () => {
 
 async function init() {
     await newTeamMember();
+//     await renderManager();
+// await renderIntern();
+// await renderEngineer();
 }
 init()
 
+// when I call these functions, node doesnt allow me to answer the inquirer prompts, maybe need to do an await??
+// await renderManager();
+// await renderIntern();
+// await renderEngineer();
 module.exports= newTeamMember

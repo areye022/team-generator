@@ -4,10 +4,13 @@ const fs = require("fs");
 const templatesDir = path.resolve(__dirname, "../roletemplates");
 
 const render = employees => {
+    console.log("inside render");
+    console.log(employees)
     const html = [];
 // this was given, so i still need this even though i created switch statments?
 
     html.push(employees
+        // keep getting an erroe on .filter when i run index.js
         .filter(employee => employee.getRole() === "Manager")
         .map(manager => renderManager(manager))
     );

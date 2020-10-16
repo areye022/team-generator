@@ -1,19 +1,24 @@
 const Employee= require('./employee')
 
 class Manager extends Employee{
-    constructor(name, id, email, role, officeNumber) {
-        super(name, id, email, role)
+    // these are the recievers; local variables
+    constructor(name, email, id, officeNumber) {
+        console.log("inside Manager")
+        console.log(email);
+        super(name, id, email)
 
-        this.name = name;
-        this.id = id;
-        this.email = email;
-        this.role=role;
         this.officeNumber= officeNumber;
     }
 
     getRole(){
-        console.log(this.role);
+        return "Manager"
     }
+
+    getOfficeNumber(){
+        return this.officeNumber;
+    }
+
 };
+
 
 module.exports= Manager
