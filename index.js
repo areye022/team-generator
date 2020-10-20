@@ -114,13 +114,13 @@ const newTeamMember = () => {
                     {
                         type : "input",
                         message : "what is their gitHub username",
-                        name : "username"    
+                        name : "github"    
                     }
                     ]
                 ).then(res => {
                     // instantiate the new role and push to the array
-                    let { name, id, role = "engineer", email, username } = res
-                    let newEngineer = new Engineer(name, email, id, username)
+                    let { name, id, role = "engineer", email, github } = res
+                    let newEngineer = new Engineer(name, email, id, github)
                     team.push(newEngineer);
                     newTeamMember();
 
